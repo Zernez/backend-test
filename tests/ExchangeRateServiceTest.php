@@ -51,4 +51,13 @@ class ExchangeRateServiceTest extends TestCase {
 
         $this->assertEquals(200, $amount);
     }
+
+    /**
+     * @test
+     */
+    public function getExchangeBadRequestTest() {
+        $amount = $this->exchangeRateService->getExchangeAmount(200, 'AAA', 'BBB');
+
+        $this->assertEquals(-1, $amount);
+    }
 }
